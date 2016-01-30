@@ -21,7 +21,17 @@ describe('API', function(){
             .expect('Content-Type', /json/)
             .expect(200, {hello:"world"}, done);
         
-    }); 
+    });
+    
+    it('/ should return specified object.', function(done){
+        
+        request(server)
+            .get('/api/v1')
+            .set('Accept', 'application/json')
+            .expect('Content-Type', /json/)
+            .expect(200, {hello:"world"}, done);
+        
+    });
     
     it('/status should return specified healthy:true.', function(done){
         
